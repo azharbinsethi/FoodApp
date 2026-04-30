@@ -10,6 +10,9 @@ class FoodApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SellerDashboard());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SellerDashboard(),
+    );
   }
 }
