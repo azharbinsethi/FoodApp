@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/Futurebuilder/Futurebuilder.dart';
+import 'package:flutter_application_1/auth/Home/Home_Screen.dart';
 import 'package:flutter_application_1/auth/Seller_Dashboard_Home/dashboard.dart';
 import 'package:flutter_application_1/auth/login/authentication/sign_up.dart';
 
@@ -68,21 +69,21 @@ class _LoginState extends State<Login> {
                             border: OutlineInputBorder(),
                             hintText: "Email",
                           ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
-                            }
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'Please enter your email';
+                          //   }
 
-                            // Naya aur behtar Regex pattern
-                            final emailRegex = RegExp(
-                              r'^[^@]+@[a-zA-Z]+\.(com)$',
-                            );
+                          //   // Naya aur behtar Regex pattern
+                          //   final emailRegex = RegExp(
+                          //     r'^[^@]+@[a-zA-Z]+\.(com)$',
+                          //   );
 
-                            if (!emailRegex.hasMatch(value)) {
-                              return 'Please enter a valid email address';
-                            }
-                            return null;
-                          },
+                          //   if (!emailRegex.hasMatch(value)) {
+                          //     return 'Please enter a valid email address';
+                          //   }
+                          //   return null;
+                          // },
                         ),
                         SizedBox(height: 10),
                         Text('Password'),
@@ -92,18 +93,18 @@ class _LoginState extends State<Login> {
                             border: OutlineInputBorder(),
                             hintText: "Password",
                           ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
-                            }
-                            // Yahan '!' lagaya hai: "Agar match NA kare to error do"
-                            else if (!RegExp(
-                              r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%^&*(),.?":{}|<>])[A-Za-z\d!@#\$%^&*(),.?":{}|<>]{8,}$',
-                            ).hasMatch(value)) {
-                              return 'Password must be at least 8 characters, \ninclude an uppercase letter, number and symbol.';
-                            }
-                            return null;
-                          },
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'Please enter your password';
+                          //   }
+                          //   // Yahan '!' lagaya hai: "Agar match NA kare to error do"
+                          //   else if (!RegExp(
+                          //     r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%^&*(),.?":{}|<>])[A-Za-z\d!@#\$%^&*(),.?":{}|<>]{8,}$',
+                          //   ).hasMatch(value)) {
+                          //     return 'Password must be at least 8 characters, \ninclude an uppercase letter, number and symbol.';
+                          //   }
+                          //   return null;
+                          // },
                         ),
                         SizedBox(height: 20),
                         Row(
@@ -142,8 +143,7 @@ class _LoginState extends State<Login> {
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              SellerDashboard(),
+                                          builder: (context) => HomeScreen(),
                                         ),
                                       );
                                     } on FirebaseAuthException catch (e) {
